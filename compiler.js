@@ -1,6 +1,6 @@
 const fs = require("fs");
 const JFile = require('jfile');
-let file = new JFile("./script.sjs"); // <-- file to read
+let file = new JFile("./example/script.sjs"); // <-- file to read
 let c = false;
 String.prototype.replaceAll = function(search, replacement) {
   var target = this;
