@@ -1,6 +1,6 @@
 const fs = require("fs");
 const JFile = require('jfile');
-let file = new JFile("./example/script.sjs"); // <-- file to read
+let file = new JFile("./script.sjs"); // <-- file to read
 let c = false;
 String.prototype.replaceAll = function(search, replacement) {
   var target = this;
@@ -59,14 +59,14 @@ for(i = 0; i < newFile.length; i++){
 	newFile[i] = newFile[i].parse(")", "@");
 	newFile[i] = newFile[i].parse("{", "(");
 	newFile[i] = newFile[i].parse("}", ")");
-	newFile[i] = newFile[i].parse("then", "{");
-	newFile[i] = newFile[i].parse("exit", "}");
+	newFile[i] = newFile[i].parse("->", "{");
+	newFile[i] = newFile[i].parse("@>", "}");
 	newFile[i] = newFile[i].parse("[", "{");
 	newFile[i] = newFile[i].parse("]", "}");
 	newFile[i] = newFile[i].parse("@", "[");
 	newFile[i] = newFile[i].parse("@", "]");
 	newFile[i] = newFile[i].parse("~", "//");
-	newFile[i] = newFile[i].parse("->", "=>");
+	newFile[i] = newFile[i].parse(">>", "=>");
 	newFile[i] = newFile[i].parse("builder", "constructor");
 	newFile[i] = newFile[i].parse("origin", "this");
 	newFile[i] = newFile[i].parse("bind", "static");
@@ -90,8 +90,8 @@ for(i = 0; i < newFile.length; i++){
 	newFile[i] = newFile[i].parse("use", "import");
 	newFile[i] = newFile[i].parse("package", "export");
 	newFile[i] = newFile[i].parse("implement", "require");
-	newFile[i] = newFile[i].parse("|", ";");
-	newFile[i] = newFile[i].parse("|", ";");
+	newFile[i] = newFile[i].parse("&", ";");
+	newFile[i] = newFile[i].parse("&", ";");
 	newFile[i] = newFile[i].parse(" and ", " && ");
 	newFile[i] = newFile[i].parse(" or ", " || ");
 	newFile[i] = newFile[i].parse("[file]sjs", ".js", true);
