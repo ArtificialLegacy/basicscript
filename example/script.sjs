@@ -1,3 +1,7 @@
+?
+	Note: This file is just an example of the syntax. If you try and run the compiled js file it will throw errors.	
+?
+
 constant Discord = implement{"discord.js"}
 
 structure Example ->
