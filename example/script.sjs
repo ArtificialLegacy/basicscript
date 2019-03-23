@@ -1,42 +1,42 @@
-constant fs = implement{"fs"}
+constant Discord = implement{"discord.js"}
 
-structure Example then
+structure Example ->
 
-	builder{tempName} then
+	builder{tempName} ->
 
 		origin.name = tempName
 
-	exit
+	@>
 
-	send{tempMessage} then
-
-		output{tempMessage}
-
-	exit
-
-	bind betterSend{tempMessage} then
+	send{tempMessage} ->
 
 		output{tempMessage}
 
-	exit
+	@>
 
-	get name{} then	
+	bind betterSend{tempMessage} ->
+
+		output{tempMessage}
+
+	@>
+
+	get name{} ->
 		
-	exit
+	@>
 
-	set name{} then
+	set name{} ->
 
-	exit
-exit
+	@>
+@>
 
-structure Example2 childs Example then
+structure Example2 childs Example ->
 
-	builder{tempName} then
+	builder{tempName} ->
 
 		parent{tempName}
 
-	exit
-exit
+	@>
+@>
 
 var example = build Example{"Hello World"}
 let example2 = build Example2{"Hello World"}
@@ -45,11 +45,11 @@ constant string = "Hello World"
 Example.betterSend{string}
 example.send{string}
 
-func thingy{} then
+func thingy{} ->
 
 	output{1}
 
-exit
+@>
 
 let array = ()
 array(0) = 1
@@ -61,23 +61,23 @@ array(0) = 1
 comment
 ?
 
-for {i = 0 | i < 5 | i++} then
+for {i = 0 & i < 5 & i++} ->
 
-exit
+@>
 
 let z = 0
 
-while {z < 5} then
+while {z < 5} ->
 
 	z++
 
-exit
+@>
 
-run then
+run ->
 
 	output{"Hello World!"}
 
-exit
+@>
 while {z < 10}
 
 let obj = [
@@ -85,60 +85,62 @@ let obj = [
 	prop2: "world hello",
 ]
 
-for {prop in obj} then
+for {prop in obj} ->
 
 	output{prop}
 	skip
 
-exit
+@>
 
-for {value of obj} then
+for {value of obj} ->
 
 	output{value}
 	skip
 
-exit
+@>
 
 let a = "t"
 let b = "t"
 
-if {a == b} then
+if {a == b} ->
 
-exit
+@>
 
-if {a == "t" and b == "t"} then
+if {a == "t" and b == "t"} ->
 
-exit
+@>
 
-if {a == "t" or b == "t"} then
+if {a == "t" or b == "t"} ->
 
-exit
+@>
 
-if {a !== b} then
+if {a !== b} ->
 
 	output{"this shouldn't be true"}
 
-exit else then
+@> else ->
 
 	output{"this should be true"}
 
-exit
+@>
 
-String.inner.splice = {} -> []
+String.inner.splice = {} >> []
 
 output{"inner, ${test}"}
 
 constant te = "f"
 
-read{te} then
+read{te} ->
 
 	is "f":
-		break
+		
+	break
 
 	any:
-		break
+		
+	break
 
-exit
+@>
 
 use Test from "./test[file]sjs";
 package basic Test;
