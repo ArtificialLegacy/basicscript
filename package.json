@@ -1,0 +1,6 @@
+{
+  "main": "compiler.js",
+  "dependencies": {
+    "jfile": "1.1.12"
+  }
+}
