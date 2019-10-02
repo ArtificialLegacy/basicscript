@@ -1,0 +1,7 @@
+{
+	"entry": "script.sjs",
+	"scripts": [
+		"creature.sjs",
+		"person.sjs"
+	]
+}
